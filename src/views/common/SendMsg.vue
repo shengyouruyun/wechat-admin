@@ -27,7 +27,7 @@
     </div>
     <div class="upload">
       <el-upload :on-remove="handleRemove" :file-list="fileList"
-                 action="http://localhost:8100/upload" :on-change="handleChange">
+                 action=`${API_URL}/upload` :on-change="handleChange">
         <a class="document"><i class="el-icon-document"></i></a>
       </el-upload>
     </div>
@@ -36,7 +36,7 @@
       <p v-html="emoji(content)" class="content"></p>
       <ul class="el-upload-list el-upload-list--picture" v-if="fileList">
         <li class="el-upload-list__item is-success" v-for="file in fileList">
-          <img :src="['http://localhost:8100/uploads/' + file.name]" class="el-upload-list__item-thumbnail">
+          <img :src="[`${API_URL}/uploads/` + file.name]" class="el-upload-list__item-thumbnail">
           <a class="el-upload-list__item-name">
             <i class="el-icon-document"></i>{{ file.name }}
           </a>
